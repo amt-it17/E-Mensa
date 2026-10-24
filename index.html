@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<!--
+ - Praktikum DBWT. Autoren:
+ - Ange Muriel, Takougang Njikou, 3792737
+ - Tazanhi, Kana Dongmo, 3800074
+-->
+
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ihre E-Mensa</title>
+
+    <style>
+
+        /* Allgemeine Gestaltung */
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            color: black;
+            margin: 0;
+        }
+
+        .seite {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        a {
+            color: teal;
+        }
+
+        a:hover {
+            color: darkslategray;
+        }
+
+        /* Kopfbereich mit Logo und Navigation */
+
+        .kopfzeile {
+            display: grid;
+            grid-template-columns: 160px auto;
+            gap: 16px;
+            padding: 24px 0;
+            border-bottom: 1px solid darkgray;
+        }
+
+        .logo {
+            border: 1px solid darkgray;
+            padding: 10px;
+        }
+
+        .logo img {
+            width: 100%;
+        }
+
+        .menue {
+            border: 1px solid darkgray;
+            padding: 20px 16px;
+        }
+
+        .menue a {
+            margin-right: 16px;
+        }
+
+        /* Hauptinhalt */
+
+        .inhalt {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .bereich {
+            margin-bottom: 48px;
+        }
+
+        h1 {
+            font-size: 30px;
+        }
+
+        h2 {
+            font-size: 25px;
+        }
+
+        .titelbild {
+            width: 100%;
+            margin-top: 24px;
+        }
+
+        .ankuendigungstext {
+            border: 1px solid darkgray;
+            padding: 16px;
+        }
+
+        /* Speisentabelle */
+
+        table {
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid darkgray;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: azure;
+        }
+
+        .preis {
+            text-align: right;
+        }
+
+        /* Drei Zahlen nebeneinander */
+
+        .statistik {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 16px;
+            text-align: center;
+        }
+
+        .zahl {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Newsletterformular */
+
+        .newsletter-felder {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 12px;
+        }
+
+        .newsletter-felder input,
+        .newsletter-felder select {
+            width: 90%;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            padding: 8px;
+            margin-top: 6px;
+            border: 1px solid gray;
+        }
+
+        .newsletter-abschluss {
+            display: grid;
+            grid-template-columns: auto 240px;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .anmelden {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 8px;
+            border: 1px solid darkgray;
+        }
+
+        .anmelden:disabled {
+            background-color: whitesmoke;
+            color: gray;
+        }
+
+        .werte li {
+            margin-bottom: 8px;
+        }
+
+        .begrussung {
+            text-align: center;
+            margin-top: 64px;
+            margin-bottom: 40px;
+        }
+
+        /* Fußzeile */
+
+        footer {
+            border-top: 1px solid darkgray;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .fusszeile {
+            display: grid;
+            grid-template-columns: auto auto auto;
+        }
+
+        .fusszeile p {
+            margin: 0;
+            padding: 0 16px;
+        }
+
+        .fusszeile p + p {
+            border-left: 1px solid darkgray;
+        }
+
+        #impressum {
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="seite">
+
+    <div class="kopfzeile">
+
+        <div class="logo">
+            <img src="logo.jpg" alt="Logo E-Mensa">
+        </div>
+
+        <div class="menue">
+            <a href="#ankuendigung">Ankündigung</a>
+            <a href="#speisen">Speisen</a>
+            <a href="#zahlen">Zahlen</a>
+            <a href="#kontakt">Kontakt</a>
+            <a href="#wichtig">Wichtig für uns</a>
+        </div>
+
+    </div>
+
+    <div class="inhalt">
+
+        <div class="bereich" id="ankuendigung">
+
+            <img class="titelbild"
+                 src="mensa.png"
+                 alt="Studierende beim Essen in einer hellen Mensa mit einem Buffet im Vordergrund.">
+
+            <h1>Bald gibt es Essen auch online ;)</h1>
+
+            <div class="ankuendigungstext">
+
+                <p>
+                    Willkommen bei Ihrer E-Mensa! Freuen Sie sich auf
+                    frische Zutaten, abwechslungsreiche Gerichte und
+                    leckeres Essen für Ihren Hochschulalltag.
+                </p>
+
+                <p>
+                    Hier erhalten Sie bald Informationen zu unserem
+                    Speiseangebot. Ob mit Fleisch oder vegetarisch:
+                    Bei uns ist für viele Geschmäcker etwas dabei.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="bereich" id="speisen">
+
+            <h2>Köstlichkeiten, die Sie erwarten</h2>
+
+            <table>
+
+                <thead>
+
+                <tr>
+                    <th>Speise</th>
+                    <th class="preis">Preis intern</th>
+                    <th class="preis">Preis extern</th>
+                </tr>
+
+                </thead>
+
+                <tbody>
+
+                <tr>
+
+                    <td>
+                        Rindfleisch mit Bambus, Kaiserschoten und
+                        rotem Paprika, dazu Mie Nudeln
+                    </td>
+
+                    <td class="preis">3,50 €</td>
+                    <td class="preis">6,20 €</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+                        Spinatrisotto mit kleinen Samosateigecken
+                        und gemischter Salat
+                    </td>
+
+                    <td class="preis">2,90 €</td>
+                    <td class="preis">5,30 €</td>
+
+                </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="bereich" id="zahlen">
+
+            <h2>E-Mensa in Zahlen</h2>
+
+            <div class="statistik">
+
+                <p>
+                    <span class="zahl">x</span><br>
+                    Besuche
+                </p>
+
+                <p>
+                    <span class="zahl">y</span><br>
+                    Anmeldungen zum Newsletter
+                </p>
+
+                <p>
+                    <span class="zahl">z</span><br>
+                    Speisen
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="bereich" id="kontakt">
+
+            <h2>Interesse geweckt? Wir informieren Sie!</h2>
+
+            <form action="newsletter.php" method="post">
+
+                <div class="newsletter-felder">
+
+                    <div>
+
+                        <label for="vorname">Ihr Name:</label><br>
+
+                        <input type="text"
+                               id="vorname"
+                               name="vorname"
+                               placeholder="Vorname"
+                               required>
+
+                    </div>
+
+                    <div>
+
+                        <label for="email">Ihre E-Mail:</label><br>
+
+                        <input type="email"
+                               id="email"
+                               name="email"
+                               required>
+
+                    </div>
+
+                    <div>
+
+                        <label for="sprache">Newsletter bitte in:</label><br>
+
+                        <select id="sprache" name="sprache">
+
+                            <option value="de" selected>Deutsch</option>
+                            <option value="en">Englisch</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="newsletter-abschluss">
+
+                    <div>
+
+                        <input type="checkbox"
+                               id="datenschutz"
+                               name="datenschutz"
+                               value="zugestimmt"
+                               required>
+
+                        <label for="datenschutz">
+                            Den Datenschutzbestimmungen stimme ich zu.
+                        </label>
+
+                    </div>
+
+                    <input class="anmelden"
+                           type="submit"
+                           value="Zum Newsletter anmelden"
+                           disabled>
+
+                </div>
+
+            </form>
+
+        </div>
+
+        <div class="bereich" id="wichtig">
+
+            <h2>Das ist uns wichtig</h2>
+
+            <ul class="werte">
+
+                <li>Beste frische saisonale Zutaten</li>
+
+                <li>Ausgewogene abwechslungsreiche Gerichte</li>
+
+                <li>Sauberkeit</li>
+
+            </ul>
+
+        </div>
+
+        <h2 class="begrussung">Wir freuen uns auf Ihren Besuch!</h2>
+
+    </div>
+
+    <footer>
+
+        <div class="fusszeile">
+
+            <p>&copy; E-Mensa GmbH</p>
+
+            <p>Ange Muriel &amp; Tazanhi</p>
+
+            <p><a href="#impressum">Impressum</a></p>
+
+        </div>
+
+        <p id="impressum">
+
+        </p>
+
+    </footer>
+
+</div>
+
+</body>
+
+</html>
